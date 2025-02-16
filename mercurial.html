@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mercurial - Version Control</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
@@ -13,38 +14,107 @@
     </header>
     <main>
         <section>
+            <h2>What is Mercurial?</h2>
+            <p>
+                Mercurial is a distributed version control system (DVCS) designed for efficient handling of projects of any size. It is fast, lightweight, and easy to use.
+            </p>
+        </section>
+
+        <section>
             <h2>Installation</h2>
-            <p>To install Mercurial, run the following command:</p>
-            <pre><code>sudo apt-get install mercurial</code></pre>
+            <p>
+                To install Mercurial on your system, use the following command:
+            </p>
+            <div class="code-container">
+                <pre><code id="code1">sudo apt-get install mercurial</code></pre>
+                <button class="copy-btn" onclick="copyCode('code1')"><i class="fas fa-copy"></i></button>
+            </div>
             <img src="img5.jpg" alt="Mercurial Installation Screenshot">
         </section>
 
         <section>
             <h2>Basic Mercurial Commands</h2>
             <h3>Initialize a Repository</h3>
-            <pre><code>hg init</code></pre>
+            <p>
+                To create a new Mercurial repository, use the <code>hg init</code> command:
+            </p>
+            <div class="code-container">
+                <pre><code id="code2">hg init</code></pre>
+                <button class="copy-btn" onclick="copyCode('code2')"><i class="fas fa-copy"></i></button>
+            </div>
+
             <h3>Add Files</h3>
-            <pre><code>hg add file.txt</code></pre>
+            <p>
+                To start tracking a file in the repository, use the <code>hg add</code> command:
+            </p>
+            <div class="code-container">
+                <pre><code id="code3">hg add file.txt</code></pre>
+                <button class="copy-btn" onclick="copyCode('code3')"><i class="fas fa-copy"></i></button>
+            </div>
+
             <h3>Commit Changes</h3>
-            <pre><code>hg commit -m "Initial commit"</code></pre>
+            <p>
+                To save changes to the repository, use the <code>hg commit</code> command with a commit message:
+            </p>
+            <div class="code-container">
+                <pre><code id="code4">hg commit -m "Initial commit"</code></pre>
+                <button class="copy-btn" onclick="copyCode('code4')"><i class="fas fa-copy"></i></button>
+            </div>
+
             <h3>Push Changes</h3>
-            <pre><code>hg push</code></pre>
+            <p>
+                To upload your changes to a remote repository, use the <code>hg push</code> command:
+            </p>
+            <div class="code-container">
+                <pre><code id="code5">hg push</code></pre>
+                <button class="copy-btn" onclick="copyCode('code5')"><i class="fas fa-copy"></i></button>
+            </div>
+
             <h3>Pull Changes</h3>
-            <pre><code>hg pull</code></pre>
+            <p>
+                To download changes from a remote repository, use the <code>hg pull</code> command:
+            </p>
+            <div class="code-container">
+                <pre><code id="code6">hg pull</code></pre>
+                <button class="copy-btn" onclick="copyCode('code6')"><i class="fas fa-copy"></i></button>
+            </div>
             <img src="img6.jpg" alt="Mercurial Commands Screenshot">
         </section>
 
         <section>
             <h2>Branching and Merging</h2>
-            <p>Create a new branch:</p>
-            <pre><code>hg branch new-feature</code></pre>
-            <p>Merge branches:</p>
-            <pre><code>hg merge new-feature</code></pre>
+            <p>
+                Mercurial allows you to create branches to work on new features or experiments. To create a new branch, use:
+            </p>
+            <div class="code-container">
+                <pre><code id="code7">hg branch new-feature</code></pre>
+                <button class="copy-btn" onclick="copyCode('code7')"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>
+                To merge changes from one branch into another, use the <code>hg merge</code> command:
+            </p>
+            <div class="code-container">
+                <pre><code id="code8">hg merge new-feature</code></pre>
+                <button class="copy-btn" onclick="copyCode('code8')"><i class="fas fa-copy"></i></button>
+            </div>
             <img src="img7.jpg" alt="Mercurial Branching Screenshot">
         </section>
     </main>
     <footer>
         <p>Created by Uday Surothiya | SAP: 500107424 | Batch: 1</p>
     </footer>
+
+    <script>
+        function copyCode(elementId) {
+            const codeElement = document.getElementById(elementId);
+            const textArea = document.createElement("textarea");
+            textArea.value = codeElement.textContent;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textArea);
+            alert("Code copied to clipboard!");
+        }
+    </script>
 </body>
 </html>

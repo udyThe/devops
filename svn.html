@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subversion (SVN) - Version Control</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
@@ -13,37 +14,92 @@
     </header>
     <main>
         <section>
+            <h2>What is Subversion (SVN)?</h2>
+            <p>
+                Apache Subversion (SVN) is a centralized version control system that allows developers to track changes to files and directories over time. It is widely used for managing source code and collaborative projects.
+            </p>
+        </section>
+
+        <section>
             <h2>Installation</h2>
-            <p>To install Apache Subversion, run the following commands:</p>
-            <pre><code>sudo apt update
+            <p>
+                To install Apache Subversion on your system, you need to update your package list and install the <code>subversion</code> package. This can be done using the following commands:
+            </p>
+            <div class="code-container">
+                <pre><code id="code1">sudo apt update
 sudo apt install subversion</code></pre>
-            <p>For installation using Nix, use:</p>
-            <pre><code>nix-shell -p subversion subversionClient tkrev</code></pre>
+                <button class="copy-btn" onclick="copyCode('code1')"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>
+                If you are using the Nix package manager, you can install SVN with additional tools like <code>tkrev</code> using:
+            </p>
+            <div class="code-container">
+                <pre><code id="code2">nix-shell -p subversion subversionClient tkrev</code></pre>
+                <button class="copy-btn" onclick="copyCode('code2')"><i class="fas fa-copy"></i></button>
+            </div>
             <img src="assets/img1.jpg" alt="SVN Installation Screenshot">
             <img src="assets/img2.jpg" alt="SVN Installation Screenshot">
         </section>
 
         <section>
             <h2>Creating a Local Repository</h2>
-            <p>1. Create a directory for your repository:</p>
-            <pre><code>mkdir ~/svn_repo</code></pre>
-            <p>2. Initialize the repository:</p>
-            <pre><code>svnadmin create ~/svn_repo/my_project</code></pre>
-            <img src="img2.jpg" alt="SVN Repository Creation Screenshot">
+            <p>
+                A repository is a central storage location where all versions of your files are stored. To create a local SVN repository:
+            </p>
+            <ol>
+                <li>Create a directory for your repository:</li>
+                <div class="code-container">
+                    <pre><code id="code3">mkdir ~/svn_repo</code></pre>
+                    <button class="copy-btn" onclick="copyCode('code3')"><i class="fas fa-copy"></i></button>
+                </div>
+                <li>Initialize the repository using the <code>svnadmin</code> command:</li>
+                <div class="code-container">
+                    <pre><code id="code4">svnadmin create ~/svn_repo/my_project</code></pre>
+                    <button class="copy-btn" onclick="copyCode('code4')"><i class="fas fa-copy"></i></button>
+                </div>
+            </ol>
+            <img src="assets/.jpg" alt="SVN Repository Creation Screenshot">
         </section>
 
         <section>
             <h2>Basic SVN Commands</h2>
             <h3>Checkout a Repository</h3>
-            <pre><code>svn checkout file:///home/uday/svn_repo/my_project</code></pre>
+            <p>
+                To create a working copy of the repository on your local machine, use the <code>svn checkout</code> command:
+            </p>
+            <div class="code-container">
+                <pre><code id="code5">svn checkout file:///home/uday/svn_repo/my_project</code></pre>
+                <button class="copy-btn" onclick="copyCode('code5')"><i class="fas fa-copy"></i></button>
+            </div>
+
             <h3>Add Files to the Repository</h3>
-            <pre><code>svn add file.txt
+            <p>
+                To add new files to the repository, navigate to your working directory and use the <code>svn add</code> command. Then commit the changes:
+            </p>
+            <div class="code-container">
+                <pre><code id="code6">svn add file.txt
 svn commit -m "Added file.txt"</code></pre>
-            <h3>Update Your Copy</h3>
-            <pre><code>svn update</code></pre>
+                <button class="copy-btn" onclick="copyCode('code6')"><i class="fas fa-copy"></i></button>
+            </div>
+
+            <h3>Update Your Working Copy</h3>
+            <p>
+                To sync your working copy with the latest changes in the repository, use the <code>svn update</code> command:
+            </p>
+            <div class="code-container">
+                <pre><code id="code7">svn update</code></pre>
+                <button class="copy-btn" onclick="copyCode('code7')"><i class="fas fa-copy"></i></button>
+            </div>
+
             <h3>Delete Files</h3>
-            <pre><code>svn delete file.txt
+            <p>
+                To remove a file from the repository, use the <code>svn delete</code> command and commit the changes:
+            </p>
+            <div class="code-container">
+                <pre><code id="code8">svn delete file.txt
 svn commit -m "Deleted file.txt"</code></pre>
+                <button class="copy-btn" onclick="copyCode('code8')"><i class="fas fa-copy"></i></button>
+            </div>
             <img src="assets/img3.jpg" alt="SVN Commands Screenshot">
             <img src="assets/img4.jpg" alt="SVN Commands Screenshot">
             <img src="assets/img5.jpg" alt="SVN Commands Screenshot">
@@ -53,15 +109,36 @@ svn commit -m "Deleted file.txt"</code></pre>
 
         <section>
             <h2>Access Control</h2>
-            <p>Edit the <code>svnserve.conf</code> file to enable authentication:</p>
-            <pre><code>anon-access = read
+            <p>
+                To enable authentication for your SVN repository, edit the <code>svnserve.conf</code> file and set the following options:
+            </p>
+            <div class="code-container">
+                <pre><code id="code9">anon-access = read
 auth-access = write
 password-db = passwd</code></pre>
+                <button class="copy-btn" onclick="copyCode('code9')"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>
+                You can also edit the <code>passwd</code> file to add users and passwords.
+            </p>
             <img src="img4.jpg" alt="SVN Access Control Screenshot">
         </section>
     </main>
     <footer>
         <p>Created by Uday Surothiya | SAP: 500107424 | Batch: 1</p>
     </footer>
+
+    <script>
+        function copyCode(elementId) {
+            const codeElement = document.getElementById(elementId);
+            const textArea = document.createElement("textarea");
+            textArea.value = codeElement.textContent;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textArea);
+            alert("Code copied to clipboard!");
+        }
+    </script>
 </body>
 </html>
