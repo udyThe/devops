@@ -44,6 +44,7 @@ pre {
     border-radius: 5px;
     overflow-x: auto;
     color: #f8f8f2;
+    position: relative;
 }
 
 code {
@@ -65,7 +66,43 @@ footer {
     margin-top: 2rem;
 }
 
-/* Card Styles */
+/* Code Container with Copy Button */
+.code-container {
+    position: relative;
+    margin: 1rem 0;
+}
+
+.copy-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: #6a11cb;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.copy-btn:hover {
+    background: #2575fc;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+section, .card {
+    animation: fadeIn 1s ease-in-out;
+}
+
 .card-container {
     display: flex;
     justify-content: space-around;
@@ -85,18 +122,4 @@ footer {
 .card:hover {
     transform: translateY(-10px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-section, .card {
-    animation: fadeIn 1s ease-in-out;
 }
