@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subversion (SVN) - Version Control</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Subversion (SVN)</h1>
+        <p>A step-by-step guide to installing and using SVN for version control.</p>
+    </header>
+    <main>
+        <section>
+            <h2>Installation</h2>
+            <p>To install Apache Subversion, run the following commands:</p>
+            <pre><code>sudo apt update
+sudo apt install subversion</code></pre>
+            <p>For installation using Nix, use:</p>
+            <pre><code>nix-shell -p subversion subversionClient tkrev</code></pre>
+            <img src="assets/img1.jpg" alt="SVN Installation Screenshot">
+            <img src="assets/img2.jpg" alt="SVN Installation Screenshot">
+        </section>
+
+        <section>
+            <h2>Creating a Local Repository</h2>
+            <p>1. Create a directory for your repository:</p>
+            <pre><code>mkdir ~/svn_repo</code></pre>
+            <p>2. Initialize the repository:</p>
+            <pre><code>svnadmin create ~/svn_repo/my_project</code></pre>
+            <img src="img2.jpg" alt="SVN Repository Creation Screenshot">
+        </section>
+
+        <section>
+            <h2>Basic SVN Commands</h2>
+            <h3>Checkout a Repository</h3>
+            <pre><code>svn checkout file:///home/uday/svn_repo/my_project</code></pre>
+            <h3>Add Files to the Repository</h3>
+            <pre><code>svn add file.txt
+svn commit -m "Added file.txt"</code></pre>
+            <h3>Update Your Copy</h3>
+            <pre><code>svn update</code></pre>
+            <h3>Delete Files</h3>
+            <pre><code>svn delete file.txt
+svn commit -m "Deleted file.txt"</code></pre>
+            <img src="assets/img3.jpg" alt="SVN Commands Screenshot">
+            <img src="assets/img4.jpg" alt="SVN Commands Screenshot">
+            <img src="assets/img5.jpg" alt="SVN Commands Screenshot">
+            <img src="assets/img6.jpg" alt="SVN Commands Screenshot">
+            <img src="assets/img7.jpg" alt="SVN Commands Screenshot">
+        </section>
+
+        <section>
+            <h2>Access Control</h2>
+            <p>Edit the <code>svnserve.conf</code> file to enable authentication:</p>
+            <pre><code>anon-access = read
+auth-access = write
+password-db = passwd</code></pre>
+            <img src="img4.jpg" alt="SVN Access Control Screenshot">
+        </section>
+    </main>
+    <footer>
+        <p>Created by Uday Surothiya | SAP: 500107424 | Batch: 1</p>
+    </footer>
+</body>
+</html>
